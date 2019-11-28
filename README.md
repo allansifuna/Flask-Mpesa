@@ -21,7 +21,7 @@ app=Flask(__name__)
 mpesaapi=MpesaAPI(app)
 ```
 
-##if you are using blueprints
+## if you are using blueprints
 ```python
 from flask_mpesa import MpesaAPI
 mpesaapi=MpesaAPI()
