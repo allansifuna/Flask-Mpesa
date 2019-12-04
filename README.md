@@ -84,7 +84,35 @@ def b2b_transact():
 ### C2B  api
 
 ```python
-c2b=mpesaapi.C2B
+@app.route('/transact/c2b')
+def c2b_transact():
+    reg_data={"shortcode": "600364",
+          "response_type": "Completed",
+          "confirmation_url": "https://50213252.ngrok.io/confirmation",
+          "validation_url": "https://50213252.ngrok.io/validation"
+    }
+    v=mpesaapi.C2B.register(**reg_data)  # ** unpacks the dictionary
+    ##use v to capture the response
+
+
+    #This method allows you to test a mock payment and see the result so it can be avoided in production mode.
+    test_data={"shortcode": "600364",
+           "command_id": "CustomerPayBillOnline",
+           "amount": "100",
+           "msisdn": "254708374149",
+           "bill_ref_number": "account"
+    }
+    new_v = mpesaapi.C2B.simulate(**test_data)  # ** unpacks the dictionary
+    #use new_v to capture the response
+    return render_template('home.html')
+
+@app.route('/confirmation',methods=["POST"])
+def c2b_confirmation():
+    #save the data
+    request_data = request.data
+
+    #Perform your processing here e.g. print it out...
+    print(request_data)
 
 ```
 
