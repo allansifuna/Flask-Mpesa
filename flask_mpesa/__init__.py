@@ -55,7 +55,7 @@ class MpesaAPI(object):
             'No application found. Either work inside a view function or push'
             ' an application context.'
         )
-
+    @property
     def C2B(self):
         """Method returns a C2B Object"""
         env, app_key, app_secret = self.get_credentials()
