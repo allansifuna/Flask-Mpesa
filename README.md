@@ -1,5 +1,4 @@
 # Flask-Mpesa
-
 Flask-Mpesa is a mpesa-py extension for flask Applications.
 
 ## Installation
@@ -129,4 +128,4 @@ Please make sure to update tests as appropriate.
 
 Examples are comming soon!.
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/allansifuna/Flask-Mpesa/blob/master/LICENSE)
