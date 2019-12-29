@@ -7,7 +7,7 @@ Flask-Mpesa is a mpesa-py extension for flask Applications.
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install flask-mpesa.
 
 ```bash
-pip install flask-mpesa
+pip install Flask-Mpesa
 ```
 
 ## Usage
@@ -38,11 +38,26 @@ app.config["APP_KEY"] = "..." # App_key from developers portal
 app.config["APP_SECRET"] = "..." #App_Secret from developers portal
 ``` 
 ### B2C  Api
+This returns a json response to your result_url.
 
 ```python
-b2c=mpesaapi.B2C 
+@app.route('/transact/b2c')
+def transact():
+    data={"initiator_name": "[InitiatorName]",
+            "security_credential": "[SecurityCredential]",#from developers portal
+            "amount": "1000",
+            "command_id":"[command_id]",
+            "party_a": "[PartyA]",
+            "party_b": "[PartyB]",
+            "remarks": "[Remarks]",
+            "queue_timeout_url": "YOUR_URL" ,
+            "result_url": "YOUR_URL",
+            "occassion": "[Occassion]"
+    }
+    v = mpesaapi.B2C.transact(**data)  # ** unpacks the dictionary
 
 ```
+
 ### B2B  Api
 
 ```python
@@ -62,14 +77,14 @@ c2b=mpesaapi.C2B
 
 ```python
 data = {
-        "business_shortcode": , #from developers portal
-        "passcode": " ",#from developers portal
-        "amount": 1, # choose amount preferrably KSH 1
-        "phone_number": "", #phone number to be prompted to pay
-        "callback_url": "http://0.0.0.0:5000/buy", # cllback url should be exposes. for testing putposes you can route on host 0.0.0.0 and set the callback url to be https://youripaddress:yourport/endpoint
-        "description": "first test" #a description of the transaction its optional
+        "business_shortcode": "[BusinessShortcode]", #from developers portal
+        "passcode": "[Passcode]",#from developers portal
+        "amount": "[Amount]", # choose amount preferrably KSH 1
+        "phone_number":"[PhoneNumber]", #phone number to be prompted to pay
+        "callback_url": "[YOUR_URL]", # cllback url should be exposes. for testing putposes you can route on host 0.0.0.0 and set the callback url to be https://youripaddress:yourport/endpoint
+        "description": "[Description]" #a description of the transaction its optional
     }
-    v = mp.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
+    v = mpesaapi.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
 
 ```
 ### Balance  api

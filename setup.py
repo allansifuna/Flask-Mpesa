@@ -1,18 +1,19 @@
 #!/usr/bin/env python
 from setuptools import find_packages, setup
 
-with open('README.rst') as f:
+with open('README.md') as f:
     readme = f.read()
 
 setup(
     name='Flask-Mpesa',
-    version='1.0.0',
+    version='1.0.1',
     url='https://github.com/allansifuna/flask-mpesa',
     license='BSD',
     author='Allan Namasaka Sifuna',
     author_email='allansifuna324@gmail.com',
-    description='Simple integration of Flask and Mpesa-daraja Api.',
-    long_description=readme,
+    description='An mpesa-py Extension for Flask Applications.',
+    # long_description=readme,
+    # long_description_content_type="text/markdown",
     packages=find_packages(),
     zip_safe=False,
     platforms='any',
@@ -25,7 +26,7 @@ setup(
         'Environment :: Web Environment',
         'Framework :: Flask',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIY License',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
