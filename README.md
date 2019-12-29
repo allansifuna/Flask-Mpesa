@@ -42,7 +42,7 @@ This returns a json response to your result_url.
 
 ```python
 @app.route('/transact/b2c')
-def transact():
+def b2c_transact():
     data={"initiator_name": "[InitiatorName]",
             "security_credential": "[SecurityCredential]",#from developers portal
             "amount": "1000",
@@ -54,15 +54,31 @@ def transact():
             "result_url": "YOUR_URL",
             "occassion": "[Occassion]"
     }
-    v = mpesaapi.B2C.transact(**data)  # ** unpacks the dictionary
+    mpesaapi.B2C.transact(**data)  # ** unpacks the dictionary
+
 
 ```
 
 ### B2B  Api
+This returns a json response to your result_url.
 
 ```python
-
-b2b=mpesaapi.B2B
+@app.route('/transact/b2b')
+def b2b_transact():
+    data={"initiator": "[Initiator]",
+            "security_credential": "[SecurityCredential]",#from developers portal
+            "amount": "1000",
+            "command_id":"[command_id]",
+            "sender_identifier_type":"[SenderIdentifierType]",
+            "receiver_identifier_type":"[ReceiverIdentifierType]",
+            "party_a": "[PartyA]",
+            "party_b": "[PartyB]",
+            "remarks": "[Remarks]",
+            "queue_timeout_url": "YOUR_URL" ,
+            "result_url": "YOUR_URL",
+            "account_reference": "[AccountReference]"
+    }
+    mpesaapi.B2B.transact(**data)  # ** unpacks the dictionary
 
 ```
 
