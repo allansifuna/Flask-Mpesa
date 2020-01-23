@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/04860a0bc19f4d9598e6a5cfdc60e2db)](https://app.codacy.com/manual/allansifuna/Flask-Mpesa?utm_source=github.com&utm_medium=referral&utm_content=allansifuna/Flask-Mpesa&utm_campaign=Badge_Grade_Dashboard)
 [![Requirements Status](https://requires.io/github/allansifuna/Flask-Mpesa/requirements.svg?branch=master)](https://requires.io/github/allansifuna/Flask-Mpesa/requirements/?branch=master)
 # Flask-Mpesa
 Flask-Mpesa is a mpesa-py extension for flask Applications.
