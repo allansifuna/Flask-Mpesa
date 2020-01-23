@@ -1,3 +1,4 @@
+[![Requirements Status](https://requires.io/github/allansifuna/Flask-Mpesa/requirements.svg?branch=master)](https://requires.io/github/allansifuna/Flask-Mpesa/requirements/?branch=master)
 # Flask-Mpesa
 Flask-Mpesa is a mpesa-py extension for flask Applications.
 
@@ -29,13 +30,13 @@ mpesaapi=MpesaAPI()
 
 mpesaapi.init_app(app)
 ```
-### Be sure to set the following variables in the app.config 
+### Be sure to set the following variables in the app.config
 
 ```python
 app.config["API_ENVIRONMENT"] = "sandbox" #sandbox or live
 app.config["APP_KEY"] = "..." # App_key from developers portal
 app.config["APP_SECRET"] = "..." #App_Secret from developers portal
-``` 
+```
 ### B2C  Api
 This returns a json response to your result_url.
 
