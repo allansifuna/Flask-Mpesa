@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/04860a0bc19f4d9598e6a5cfdc60e2db)](https://app.codacy.com/manual/allansifuna/Flask-Mpesa?utm_source=github.com&utm_medium=referral&utm_content=allansifuna/Flask-Mpesa&utm_campaign=Badge_Grade_Dashboard)
 [![Requirements Status](https://requires.io/github/allansifuna/Flask-Mpesa/requirements.svg?branch=master)](https://requires.io/github/allansifuna/Flask-Mpesa/requirements/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/95668732c0014077abf06e7826c1becf)](https://www.codacy.com/manual/allansifuna/Flask-Mpesa?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=allansifuna/Flask-Mpesa&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/allansifuna/Flask-Mpesa/badge.svg?branch=master)](https://coveralls.io/github/allansifuna/Flask-Mpesa?branch=master)
