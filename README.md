@@ -123,15 +123,30 @@ def c2b_confirmation():
 ### MpesaExpress  api
 
 ```python
-data = {
+@app.route('/transact/c2b')
+def c2b_transact():
+    data = {
         "business_shortcode": "[BusinessShortcode]", #from developers portal
         "passcode": "[Passcode]",#from developers portal
         "amount": "[Amount]", # choose amount preferrably KSH 1
         "phone_number":"[PhoneNumber]", #phone number to be prompted to pay
+        "reference_code": "[Reference Code]",#Code to inform the user of services he/she is paying for.
         "callback_url": "[YOUR_URL]", # cllback url should be exposes. for testing putposes you can route on host 0.0.0.0 and set the callback url to be https://youripaddress:yourport/endpoint
         "description": "[Description]" #a description of the transaction its optional
     }
     v = mpesaapi.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
+    ##use v to capture the response
+    return render_template('home.html')
+
+@app.route('/callback-url',methods=["POST"])
+def callback_url():
+    #get json data set to this route
+    json_data = request.get_json()
+    #get result code and probably check for transaction success or failure
+    result_code=json_data["Body"]["stkCallback"]["ResultCode"]
+
+    #if result code is 0 you can proceed and save the data else if its any other number you can track the transaction
+    return jsonify(json_data)
 
 ```
 ### Balance  api
