@@ -1,6 +1,19 @@
 [![Requirements Status](https://requires.io/github/allansifuna/Flask-Mpesa/requirements.svg?branch=master)](https://requires.io/github/allansifuna/Flask-Mpesa/requirements/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/95668732c0014077abf06e7826c1becf)](https://www.codacy.com/manual/allansifuna/Flask-Mpesa?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=allansifuna/Flask-Mpesa&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/allansifuna/Flask-Mpesa/badge.svg?branch=master)](https://coveralls.io/github/allansifuna/Flask-Mpesa?branch=master)
+
+|pypi|_
+|license|_
+|build_status_stable|_
+
+.. |pypi| image:: https://img.shields.io/pypi/v/Flask-Mpesa.svg?style=flat-square
+.. _pypi: https://pypi.python.org/pypi/Flask-Mpesa/
+
+.. |license| image:: https://img.shields.io/pypi/l/Flask-Mpesa.svg?style=flat-square
+.. _license: https://github.com/allansifuna/Flask-Mpesa/blob/master/LICENSE
+
+.. |build_status_stable| image:: https://img.shields.io/travis/Flask-Mpesa/Flask-Mpesa/stable.svg?style=flat-square
+.. _build_status_stable: http://travis-ci.org/Flask-Mpesa/Flask-Mpesa
 # Flask-Mpesa
 Flask-Mpesa is a mpesa-py extension for flask Applications.
 
