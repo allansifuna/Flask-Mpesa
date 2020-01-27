@@ -16,7 +16,10 @@ class B2B(MpesaBase):
             **Args:**
                 - initiator (str): Username used to authenticate the transaction.
                 - security_credential (str): Generate from developer portal
-                - command_id (str): Options: BusinessPayBill, BusinessBuyGoods, DisburseFundsToBusiness, BusinessToBusinessTransfer ,BusinessTransferFromMMFToUtility, BusinessTransferFromUtilityToMMF, MerchantToMerchantTransfer, MerchantTransferFromMerchantToWorking, MerchantServicesMMFAccountTransfer, AgencyFloatAdvance
+                - command_id (str): Options: BusinessPayBill, BusinessBuyGoods, DisburseFundsToBusiness,
+                    BusinessToBusinessTransfer ,BusinessTransferFromMMFToUtility, BusinessTransferFromUtilityToMMF,
+                     MerchantToMerchantTransfer, MerchantTransferFromMerchantToWorking, MerchantServicesMMFAccountTransfer,
+                     AgencyFloatAdvance
                 - sender_identifier_type (str): 2 for Till Number, 4 for organization shortcode
                 - receiver_identifier_type (str): # 2 for Till Number, 4 for organization shortcode
                 - amount(str): Amount.

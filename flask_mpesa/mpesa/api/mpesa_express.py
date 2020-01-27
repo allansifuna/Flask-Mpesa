@@ -13,22 +13,24 @@ class MpesaExpress(MpesaBase):
                  phone_number=None, description=None):
         """This method uses Mpesa's Express API to initiate online payment on behalf of a customer..
 
-                                                    **Args:**
-                                                        - business_shortcode (int): The short code of the organization.
-                                                        - passcode (str): Get from developer portal
-                                                        - amount (int): The amount being transacted
-                                                        - callback_url (str): A CallBack URL is a valid secure URL that is used to receive notifications from M-Pesa API.
-                                                        - reference_code: Account Reference: This is an Alpha-Numeric parameter that is defined by your system as an Identifier of the transaction for CustomerPayBillOnline transaction type.
-                                                        - phone_number: The Mobile Number to receive the STK Pin Prompt.
-                                                        - description: This is any additional information/comment that can be sent along with the request from your system. MAX 13 characters
+        **Args:**
+            - business_shortcode (int): The short code of the organization.
+            - passcode (str): Get from developer portal
+            - amount (int): The amount being transacted
+            - callback_url (str): A CallBack URL is a valid secure URL that is used to receive notifications from M-Pesa API.
+            - reference_code: Account Reference: This is an Alpha-Numeric parameter that is defined by your system
+                as an Identifier of the transaction for CustomerPayBillOnline transaction type.
+            - phone_number: The Mobile Number to receive the STK Pin Prompt.
+            - description: This is any additional information/comment that can be sent along with
+                the request from your system. MAX 13 characters
 
 
-                                                    **Returns:**
-                                                        - CustomerMessage (str):
-                                                        - CheckoutRequestID (str):
-                                                        - ResponseDescription (str):
-                                                        - MerchantRequestID (str):
-                                                        - ResponseCode (str):
+        **Returns:**
+            - CustomerMessage (str):
+            - CheckoutRequestID (str):
+            - ResponseDescription (str):
+            - MerchantRequestID (str):
+            - ResponseCode (str):
 
         """
 

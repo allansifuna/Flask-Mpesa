@@ -16,7 +16,8 @@ class TransactionStatus(MpesaBase):
 
             **Args:**
                 - party_a (str): Organization/MSISDN receiving the transaction - MSISDN or shortcode.
-                - identifier_type (str): Type of organization receiving the transaction 1-MSISDN. 2-Till Number, 3-Shortcode.
+                - identifier_type (str): Type of organization receiving the transaction
+                 1-MSISDN. 2-Till Number, 4-Shortcode.
                 - remarks (str): Comments that are sent along with the transaction(maximum 100 characters).
                 - initiator (str): This is the credential/username used to authenticate the transaction request.
                 - passcode (str): Get from developer portal
