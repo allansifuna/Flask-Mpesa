@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/allansifuna/Flask-Mpesa/badge.svg?branch=master)](https://coveralls.io/github/allansifuna/Flask-Mpesa?branch=master)
 
 # Flask-Mpesa
-Flask-Mpesa is a mpesa-py extension for flask Applications.
+Flask-Mpesa provides a simple intergration for flask Applications with Mpesa Daraja API.
 
 ## Installation
 
