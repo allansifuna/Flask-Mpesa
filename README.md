@@ -44,7 +44,7 @@ app.config["APP_SECRET"] = "..." #App_Secret from developers portal
 This returns a json response to your result_url.
 
 ```python
-@app.route('/transact/b2c')
+@app.route('/transact/b2c',methods=['GET'])
 def b2c_transact():
     data={"initiator_name": "[InitiatorName]",
             "security_credential": "[SecurityCredential]",#from developers portal
@@ -144,9 +144,13 @@ def callback_url():
     json_data = request.get_json()
     #get result code and probably check for transaction success or failure
     result_code=json_data["Body"]["stkCallback"]["ResultCode"]
-
+    message={
+        "ResultCode":0,
+        "ResultDesc":"success",
+        "ThirdPartyTransID":"h234k2h4krhk2"
+    }
     #if result code is 0 you can proceed and save the data else if its any other number you can track the transaction
-    return jsonify(json_data)
+    return jsonify(message),200
 
 ```
 ### Balance  api
