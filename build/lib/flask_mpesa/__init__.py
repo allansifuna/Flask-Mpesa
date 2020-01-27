@@ -1,12 +1,12 @@
 from flask import Blueprint, current_app
 import warnings
-from mpesa.api.b2c import B2C
-from mpesa.api.c2b import C2B
-from mpesa.api.b2b import B2B
-from mpesa.api.balance import Balance
-from mpesa.api.mpesa_express import MpesaExpress
-from mpesa.api.reversal import Reversal
-from mpesa.api.transaction_status import TransactionStatus
+from flask_mpesa.mpesa.api.b2c import B2C
+from flask_mpesa.mpesa.api.c2b import C2B
+from flask_mpesa.mpesa.api.b2b import B2B
+from flask_mpesa.mpesa.api.balance import Balance
+from flask_mpesa.mpesa.api.mpesa_express import MpesaExpress
+from flask_mpesa.mpesa.api.reversal import Reversal
+from flask_mpesa.mpesa.api.transaction_status import TransactionStatus
 
 
 class MpesaAPI(object):

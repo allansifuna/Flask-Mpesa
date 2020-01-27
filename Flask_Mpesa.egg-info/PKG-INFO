@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Flask-Mpesa
-Version: 1.2.0
+Version: 1.2.1
 Summary: An mpesa-py Extension for Flask Applications.
 Home-page: https://github.com/allansifuna/flask-mpesa
 Author: Allan Namasaka Sifuna
