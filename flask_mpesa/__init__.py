@@ -26,7 +26,8 @@ class MpesaAPI(object):
         self.app = app
         self.register_blueprint(app)
 
-    def register_blueprint(self, app):
+    @staticmethod
+    def register_blueprint(app):
         module = Blueprint('mpesaapi', __name__, template_folder='templates')
         app.register_blueprint(module)
         return module
