@@ -9,4 +9,4 @@ before_script:
   - export FLASK_APP="$TRAVIS_BUILD_DIR/flask_mpesa/__init__.py"
   - export FLASK_DEBUG=1
 
-
+script: flask test
