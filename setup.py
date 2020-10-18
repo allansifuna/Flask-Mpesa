@@ -6,7 +6,7 @@ with open('README.md') as f:
 
 setup(
     name='Flask-Mpesa',
-    version='1.2.4',
+    version='1.2.5',
     url='https://github.com/allansifuna/flask-mpesa',
     license='BSD',
     author='Allan Namasaka Sifuna',

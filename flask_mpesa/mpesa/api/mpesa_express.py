@@ -6,7 +6,8 @@ import datetime
 
 class MpesaExpress(MpesaBase):
     def __init__(self, env="sandbox", app_key=None, app_secret=None, sandbox_url=None, live_url=None):
-        MpesaBase.__init__(self, env, app_key, app_secret, sandbox_url, live_url)
+        MpesaBase.__init__(self, env, app_key, app_secret,
+                           sandbox_url, live_url)
         self.authentication_token = self.authenticate()
 
     def stk_push(self, business_shortcode=None, passcode=None, amount=None, callback_url=None, reference_code=None,
@@ -34,12 +35,14 @@ class MpesaExpress(MpesaBase):
 
         """
 
-        time = str(datetime.datetime.now()).split(".")[0].replace("-", "").replace(" ", "").replace(":", "")
-        password = "{0}{1}{2}".format(str(business_shortcode), str(passcode), time)
+        time = str(datetime.datetime.now()).split(".")[0].replace(
+            "-", "").replace(" ", "").replace(":", "")
+        password = "{0}{1}{2}".format(
+            str(business_shortcode), str(passcode), time)
         encoded = base64.b64encode(password.encode())
         payload = {
             "BusinessShortCode": business_shortcode,
-            "Password": encoded,
+            "Password": encoded.decode('utf-8'),
             "Timestamp": time,
             "TransactionType": "CustomerPayBillOnline",
             "Amount": amount,
@@ -50,12 +53,14 @@ class MpesaExpress(MpesaBase):
             "AccountReference": reference_code,
             "TransactionDesc": description
         }
-        headers = {'Authorization': 'Bearer {0}'.format(self.authentication_token), 'Content-Type': "application/json"}
+        headers = {'Authorization': 'Bearer {0}'.format(
+            self.authentication_token), 'Content-Type': "application/json"}
         if self.env == "production":
             base_safaricom_url = self.live_url
         else:
             base_safaricom_url = self.sandbox_url
-        saf_url = "{0}{1}".format(base_safaricom_url, "/mpesa/stkpush/v1/processrequest")
+        saf_url = "{0}{1}".format(
+            base_safaricom_url, "/mpesa/stkpush/v1/processrequest")
         r = requests.post(saf_url, headers=headers, json=payload)
         return r.json()
 
@@ -78,8 +83,10 @@ class MpesaExpress(MpesaBase):
 
         """
 
-        time = str(datetime.datetime.now()).split(".")[0].replace("-", "").replace(" ", "").replace(":", "")
-        password = "{0}{1}{2}".format(str(business_shortcode), str(passcode), time)
+        time = str(datetime.datetime.now()).split(".")[0].replace(
+            "-", "").replace(" ", "").replace(":", "")
+        password = "{0}{1}{2}".format(
+            str(business_shortcode), str(passcode), time)
         encoded = base64.b64encode(password.encode())
         payload = {
             "BusinessShortCode": business_shortcode,
@@ -87,11 +94,13 @@ class MpesaExpress(MpesaBase):
             "Timestamp": time,
             "CheckoutRequestID": checkout_request_id
         }
-        headers = {'Authorization': 'Bearer {0}'.format(self.authentication_token), 'Content-Type': "application/json"}
+        headers = {'Authorization': 'Bearer {0}'.format(
+            self.authentication_token), 'Content-Type': "application/json"}
         if self.env == "production":
             base_safaricom_url = self.live_url
         else:
             base_safaricom_url = self.sandbox_url
-        saf_url = "{0}{1}".format(base_safaricom_url, "/mpesa/stkpushquery/v1/query")
+        saf_url = "{0}{1}".format(
+            base_safaricom_url, "/mpesa/stkpushquery/v1/query")
         r = requests.post(saf_url, headers=headers, json=payload)
         return r.json()
