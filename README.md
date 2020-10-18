@@ -134,8 +134,8 @@ def c2b_transact():
         "callback_url": "[YOUR_URL]", # cllback url should be exposes. for testing putposes you can route on host 0.0.0.0 and set the callback url to be https://youripaddress:yourport/endpoint
         "description": "[Description]" #a description of the transaction its optional
     }
-    v = mpesaapi.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
-    ##use v to capture the response
+    resp = mpesaapi.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
+    ##use resp to capture the response
     return render_template('home.html')
 
 @app.route('/callback-url',methods=["POST"])

@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: Flask-Mpesa
-Version: 1.2.1
-Summary: An mpesa-py Extension for Flask Applications.
+Version: 1.2.4
+Summary: A Safaricom's DarajaAPI package for Flask Applications.
 Home-page: https://github.com/allansifuna/flask-mpesa
 Author: Allan Namasaka Sifuna
 Author-email: allansifuna324@gmail.com
@@ -11,7 +11,7 @@ Description: [![Requirements Status](https://requires.io/github/allansifuna/Flas
         [![Coverage Status](https://coveralls.io/repos/github/allansifuna/Flask-Mpesa/badge.svg?branch=master)](https://coveralls.io/github/allansifuna/Flask-Mpesa?branch=master)
         
         # Flask-Mpesa
-        Flask-Mpesa is a mpesa-py extension for flask Applications.
+        Flask-Mpesa provides a simple intergration for flask Applications with Mpesa Daraja API.
         
         ## Installation
         
@@ -142,8 +142,8 @@ Description: [![Requirements Status](https://requires.io/github/allansifuna/Flas
                 "callback_url": "[YOUR_URL]", # cllback url should be exposes. for testing putposes you can route on host 0.0.0.0 and set the callback url to be https://youripaddress:yourport/endpoint
                 "description": "[Description]" #a description of the transaction its optional
             }
-            v = mpesaapi.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
-            ##use v to capture the response
+            resp = mpesaapi.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
+            ##use resp to capture the response
             return render_template('home.html')
         
         @app.route('/callback-url',methods=["POST"])

@@ -1,2 +1,1 @@
 Flask
-Flask_Mpesa==1.2.1
