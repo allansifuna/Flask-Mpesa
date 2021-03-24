@@ -22,16 +22,16 @@ from flask_mpesa import MpesaAPI
 app=Flask(__name__)
 
 
-mpesaapi=MpesaAPI(app)
+mpesa_api=MpesaAPI(app)
 ```
 
 
 ## if you are using blueprints
 ```python
 from flask_mpesa import MpesaAPI
-mpesaapi=MpesaAPI()
+mpesa_api=MpesaAPI()
 
-mpesaapi.init_app(app)
+mpesa_api.init_app(app)
 ```
 ### Be sure to set the following variables in the app.config
 
@@ -57,7 +57,7 @@ def b2c_transact():
             "result_url": "YOUR_URL",
             "occassion": "[Occassion]"
     }
-    mpesaapi.B2C.transact(**data)  # ** unpacks the dictionary
+    mpesa_api.B2C.transact(**data)  # ** unpacks the dictionary
 
 
 ```
@@ -81,7 +81,7 @@ def b2b_transact():
             "result_url": "YOUR_URL",
             "account_reference": "[AccountReference]"
     }
-    mpesaapi.B2B.transact(**data)  # ** unpacks the dictionary
+    mpesa_api.B2B.transact(**data)  # ** unpacks the dictionary
 
 ```
 
@@ -92,10 +92,10 @@ def b2b_transact():
 def c2b_transact():
     reg_data={"shortcode": "600364",
           "response_type": "Completed",
-          "confirmation_url": "https://50213252.ngrok.io/confirmation",
-          "validation_url": "https://50213252.ngrok.io/validation"
+          "confirmation_url": "https://example.com/confirmation",
+          "validation_url": "https://example.com/validation"
     }
-    v=mpesaapi.C2B.register(**reg_data)  # ** unpacks the dictionary
+    v=mpesa_api.C2B.register(**reg_data)  # ** unpacks the dictionary
     ##use v to capture the response
 
 
@@ -106,7 +106,7 @@ def c2b_transact():
            "msisdn": "254708374149",
            "bill_ref_number": "account"
     }
-    new_v = mpesaapi.C2B.simulate(**test_data)  # ** unpacks the dictionary
+    new_v = mpesa_api.C2B.simulate(**test_data)  # ** unpacks the dictionary
     #use new_v to capture the response
     return render_template('home.html')
 
@@ -134,7 +134,7 @@ def c2b_transact():
         "callback_url": "[YOUR_URL]", # cllback url should be exposes. for testing putposes you can route on host 0.0.0.0 and set the callback url to be https://youripaddress:yourport/endpoint
         "description": "[Description]" #a description of the transaction its optional
     }
-    resp = mpesaapi.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
+    resp = mpesa_api.MpesaExpress.stk_push(**data)  # ** unpacks the dictionary
     ##use resp to capture the response
     return render_template('home.html')
 
@@ -156,19 +156,19 @@ def callback_url():
 ### Balance  api
 
 ```python
-balance=mpesaapi.Balance
+balance=mpesa_api.Balance
 
 ```
 ### Reversal  api
 
 ```python
-reversal=mpesaapi.Reversal
+reversal=mpesa_api.Reversal
 
 ```
 ### TransactionStatus  api
 
 ```python
-transaction_status=mpesaapi.TransactionStatus
+transaction_status=mpesa_api.TransactionStatus
 
 ```
 ## Contributing
