@@ -6,7 +6,7 @@
 ![GitHub](https://img.shields.io/github/license/allansifuna/Flask-Mpesa?color=dark-green)
 ![PyPI](https://img.shields.io/pypi/v/Flask-Mpesa)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Flask-Mpesa?color=dark-green)
-![PyPI - Implementation](https://img.shields.io/pypi/implementation/Flask-Mpesa?color=yellow)
+![PyPI - Implementation](https://img.shields.io/pypi/implementation/Flask-Mpesa?color=blue)
 ![PyPI - Status](https://img.shields.io/pypi/status/Flask-Mpesa)
 # Flask-Mpesa
 Flask-Mpesa provides a simple intergration for flask Applications with Mpesa Daraja API.
