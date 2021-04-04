@@ -1,7 +1,13 @@
 [![Requirements Status](https://requires.io/github/allansifuna/Flask-Mpesa/requirements.svg?branch=master)](https://requires.io/github/allansifuna/Flask-Mpesa/requirements/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/95668732c0014077abf06e7826c1becf)](https://www.codacy.com/manual/allansifuna/Flask-Mpesa?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=allansifuna/Flask-Mpesa&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/allansifuna/Flask-Mpesa/badge.svg?branch=master)](https://coveralls.io/github/allansifuna/Flask-Mpesa?branch=master)
-
+![Top language](https://img.shields.io/github/languages/top/allansifuna/Flask-Mpesa)
+![Code size](https://img.shields.io/github/languages/code-size/allansifuna/Flask-Mpesa?color=dark-green)
+![GitHub](https://img.shields.io/github/license/allansifuna/Flask-Mpesa?color=dark-green)
+![PyPI](https://img.shields.io/pypi/v/Flask-Mpesa)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Flask-Mpesa?color=dark-green)
+![PyPI - Implementation](https://img.shields.io/pypi/implementation/Flask-Mpesa?color=yellow)
+![PyPI - Status](https://img.shields.io/pypi/status/Flask-Mpesa)
 # Flask-Mpesa
 Flask-Mpesa provides a simple intergration for flask Applications with Mpesa Daraja API.
 
