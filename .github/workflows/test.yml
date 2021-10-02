@@ -22,9 +22,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --upgrade pre-commit
           python -m pip install -e '.[d]'
+          python -m pip install pytest
       - name: Run tests
         run: |
-          coverage run -m pytest restcountries
+          coverage run -m pytest flask_mpesa
       - name: Upload coverage data to coveralls.io
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
