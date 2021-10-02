@@ -34,8 +34,8 @@ class MpesaBase:
         else:
             base_safaricom_url = self.sandbox_url
         authenticate_uri = "/oauth/v1/generate?grant_type=client_credentials"
-        authenticate_url = "{0}{1}".format(base_safaricom_url, authenticate_uri)
+        authenticate_url = f"{base_safaricom_url}{authenticate_uri}"
         r = requests.get(authenticate_url,
-                         auth=HTTPBasicAuth(self.app_key, self.app_secret))
+                         auth=HTTPBasicAuth(str(self.app_key), str(self.app_secret)))
         self.token = r.json()['access_token']
         return r.json()['access_token']

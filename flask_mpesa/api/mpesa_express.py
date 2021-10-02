@@ -37,8 +37,7 @@ class MpesaExpress(MpesaBase):
 
         time = str(datetime.datetime.now()).split(".")[0].replace(
             "-", "").replace(" ", "").replace(":", "")
-        password = "{0}{1}{2}".format(
-            str(business_shortcode), str(passcode), time)
+        password = f"{business_shortcode}{passcode}{time}"
         encoded = base64.b64encode(password.encode())
         payload = {
             "BusinessShortCode": business_shortcode,
@@ -53,14 +52,12 @@ class MpesaExpress(MpesaBase):
             "AccountReference": reference_code,
             "TransactionDesc": description
         }
-        headers = {'Authorization': 'Bearer {0}'.format(
-            self.authentication_token), 'Content-Type': "application/json"}
+        headers = {'Authorization': f"Bearer {self.authentication_token}", 'Content-Type': "application/json"}
         if self.env == "production":
             base_safaricom_url = self.live_url
         else:
             base_safaricom_url = self.sandbox_url
-        saf_url = "{0}{1}".format(
-            base_safaricom_url, "/mpesa/stkpush/v1/processrequest")
+        saf_url = f"{base_safaricom_url}/mpesa/stkpush/v1/processrequest"
         r = requests.post(saf_url, headers=headers, json=payload)
         return r.json()
 
@@ -85,8 +82,7 @@ class MpesaExpress(MpesaBase):
 
         time = str(datetime.datetime.now()).split(".")[0].replace(
             "-", "").replace(" ", "").replace(":", "")
-        password = "{0}{1}{2}".format(
-            str(business_shortcode), str(passcode), time)
+        password = f"{business_shortcode}{passcode}{time}"
         encoded = base64.b64encode(password.encode())
         payload = {
             "BusinessShortCode": business_shortcode,
@@ -94,13 +90,11 @@ class MpesaExpress(MpesaBase):
             "Timestamp": time,
             "CheckoutRequestID": checkout_request_id
         }
-        headers = {'Authorization': 'Bearer {0}'.format(
-            self.authentication_token), 'Content-Type': "application/json"}
+        headers = {'Authorization': f"Bearer {self.authentication_token}", 'Content-Type': "application/json"}
         if self.env == "production":
             base_safaricom_url = self.live_url
         else:
             base_safaricom_url = self.sandbox_url
-        saf_url = "{0}{1}".format(
-            base_safaricom_url, "/mpesa/stkpushquery/v1/query")
+        saf_url = f"{base_safaricom_url}/mpesa/stkpushquery/v1/query"
         r = requests.post(saf_url, headers=headers, json=payload)
         return r.json()

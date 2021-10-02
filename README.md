@@ -1,4 +1,3 @@
-[![Requirements Status](https://requires.io/github/allansifuna/Flask-Mpesa/requirements.svg?branch=master)](https://requires.io/github/allansifuna/Flask-Mpesa/requirements/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/95668732c0014077abf06e7826c1becf)](https://www.codacy.com/manual/allansifuna/Flask-Mpesa?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=allansifuna/Flask-Mpesa&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/allansifuna/Flask-Mpesa/badge.svg?branch=master)](https://coveralls.io/github/allansifuna/Flask-Mpesa?branch=master)
 ![Top language](https://img.shields.io/github/languages/top/allansifuna/Flask-Mpesa)
@@ -46,6 +45,29 @@ app.config["API_ENVIRONMENT"] = "sandbox" #sandbox or live
 app.config["APP_KEY"] = "..." # App_key from developers portal
 app.config["APP_SECRET"] = "..." #App_Secret from developers portal
 ```
+
+## Usage
+For the api requests to be processed by safaricom, they need to be secure. This means that your urls should
+use https instead of http protocal. I recommend use of a port tunneling app like Ngrok.
+
+## Sample Credentials
+For testing your application, You should acquire test cedentials from [Daraja API's Portal](https://developer.safaricom.co.ke)
+but if you the credentials don't work for you you can use the credentials below:-
+
+
+
+| Key  | Value |
+| ------------- | ------------- |
+| app_key | vbxsneeZ9IMFoyKKIgOIQQZFlawAADnP |
+| app_secret | WAzDhQVhitIXwiTc |
+| initiator_name  | testapi364  |
+| party_a | 600364 |
+| security_credential | TziD/ydlT52Fm6SOH1ebrzUFwy3cP6OGplsrWja+X/1roQy2AzMsj5QGuqu9O+IFR1E6l16Jm87tg4bhnxoIhAufCEWusQI1wJZ6YLzpN0cHZAY/8SN1JfHdgEkrmksAY14pejHyfntyLT9Sg51kBjaj6J7/2+gHl2e64klnJAhlfPJWxC18zwEzsg58zFmypcovPPB6MHkPLyHQNFbu4oXC0e2gkZrIAWXTNN7PpYt4m/w39s5txU7/6P7hTzXgYAgqk4kxfPBIBeEmKhH5tSGxMD+xnSpZIXLovFgopexq8S76pmdLMjr2CdR60GlwXnAPnKJ5U9CIxRRewuoksQ== |
+| business_shortcode | 174379 |
+| passcode | bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919 |
+
+NOTE: These credentials are for a sample sandbox application and cannot be used in production.
+
 ### B2C  Api
 This returns a json response to your result_url.
 
@@ -162,27 +184,46 @@ def callback_url():
 ### Balance  api
 
 ```python
-balance=mpesa_api.Balance
+@app.route('/transact/balance')
+def balance():
+    data = {"initiator": "",
+            "security_credential": "",
+            "command_id": "AccountBalance",
+            "party_a": "",
+            "identifier_type": "",
+            "remarks": "",
+            "queue_timeout_url": "",
+            "result_url": ""
+            }
+    balance_response = mp.Balance.get_balance(**data)  # ** unpacks the dictionary
+
+    # use balance_response to capture the response
 
 ```
-### Reversal  api
 
-```python
-reversal=mpesa_api.Reversal
-
-```
 ### TransactionStatus  api
 
 ```python
-transaction_status=mpesa_api.TransactionStatus
+@app.route("/transaction-status")
+def transaction_status():
+    data = {"initiator": "",
+            "transaction_id": "",
+            "party_a": "",
+            "security_credential": "",
+            "identifier_type": "",
+            "remarks": "",
+            "queue_timeout_url": "",
+            "result_url": "",
+            "occassion": ""
+            }
+    status = mp.TransactionStatus.check_transaction_status(**data)
+    # use status to capture the response
 
 ```
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-## Tests and Examples
 
-Examples are comming soon!.
 ## License
 [MIT](https://github.com/allansifuna/Flask-Mpesa/blob/master/LICENSE)

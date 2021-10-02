@@ -4,11 +4,12 @@ from .auth import MpesaBase
 
 class Reversal(MpesaBase):
     def __init__(self, env="sandbox", app_key=None, app_secret=None, sandbox_url=None, live_url=None):
-        MpesaBase.__init__(self, env, app_key, app_secret, sandbox_url, live_url)
+        MpesaBase.__init__(self, env, app_key, app_secret,
+                           sandbox_url, live_url)
         self.authentication_token = self.authenticate()
 
     def reverse(self, initiator=None, security_credential=None, command_id="TransactionReversal", transaction_id=None,
-                 amount=None, receiver_party=None, receiver_identifier_type=None, queue_timeout_url=None,
+                amount=None, receiver_party=None, receiver_identifier_type=None, queue_timeout_url=None,
                 result_url=None, remarks=None, occassion=None):
         """This method uses Mpesa's Transaction Reversal API to reverse a M-Pesa transaction.
 
@@ -47,12 +48,11 @@ class Reversal(MpesaBase):
             "Remarks": remarks,
             "Occassion": occassion
         }
-        headers = {'Authorization': 'Bearer {0}'.format(self.authentication_token), 'Content-Type': "application/json"}
+        headers = {'Authorization': f"Bearer {self.authentication_token}", 'Content-Type': "application/json"}
         if self.env == "production":
             base_safaricom_url = self.live_url
         else:
             base_safaricom_url = self.sandbox_url
-        saf_url = "{0}{1}".format(base_safaricom_url, "/mpesa/reversal/v1/request")
+        saf_url = f"{base_safaricom_url}/mpesa/reversal/v1/request"
         r = requests.post(saf_url, headers=headers, json=payload)
         return r.json()
-

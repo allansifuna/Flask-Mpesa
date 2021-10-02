@@ -5,7 +5,8 @@ from .auth import MpesaBase
 class B2C(MpesaBase):
     def __init__(self, env="sandbox", app_key=None, app_secret=None, sandbox_url="https://sandbox.safaricom.co.ke",
                  live_url="https://safaricom.co.ke"):
-        MpesaBase.__init__(self, env, app_key, app_secret, sandbox_url, live_url)
+        MpesaBase.__init__(self, env, app_key, app_secret,
+                           sandbox_url, live_url)
         self.authentication_token = self.authenticate()
 
     def transact(self, initiator_name=None, security_credential=None, command_id=None, amount=None,
@@ -19,9 +20,8 @@ class B2C(MpesaBase):
                         - security_credential (str): Generate from developer portal
                         - command_id (str): Options: SalaryPayment, BusinessPayment, PromotionPayment
                         - amount(str): Amount.
-                        - party_a (int): Organization/MSISDN making the transaction -
-                          Shortcode (6 digits) - MSISDN (12 digits).
-                        - party_b (int): MSISDN receiving the transaction (12 digits).
+                        - party_a (int): B2C organization shortcode from which the money is to be sent.Shortcode (5-6 digits) - MSISDN (12 digits).
+                        - party_b (int): MSISDN receiving the transaction (12 digits). Should start with 254 without + sign.
                         - remarks (str): Comments that are sent along with the transaction(maximum 100 characters).
                         - account_reference (str): Use if doing paybill to banks etc.
                         - queue_timeout_url (str): The url that handles information of timed out transactions.
@@ -49,12 +49,11 @@ class B2C(MpesaBase):
             "ResultURL": result_url,
             "Occassion": occassion
         }
-        headers = {'Authorization': 'Bearer {0}'.format(self.authentication_token), 'Content-Type': "application/json"}
+        headers = {'Authorization': f"Bearer {self.authentication_token}", 'Content-Type': "application/json"}
         if self.env == "production":
             base_safaricom_url = self.live_url
         else:
             base_safaricom_url = self.sandbox_url
-        saf_url = "{0}{1}".format(base_safaricom_url, "/mpesa/b2c/v1/paymentrequest")
+        saf_url = f"{base_safaricom_url}/mpesa/b2c/v1/paymentrequest"
         r = requests.post(saf_url, headers=headers, json=payload)
         return r.json()
-

@@ -1,12 +1,13 @@
 from flask import Blueprint, current_app
 import warnings
-from flask_mpesa.mpesa.api.b2c import B2C
-from flask_mpesa.mpesa.api.c2b import C2B
-from flask_mpesa.mpesa.api.b2b import B2B
-from flask_mpesa.mpesa.api.balance import Balance
-from flask_mpesa.mpesa.api.mpesa_express import MpesaExpress
-from flask_mpesa.mpesa.api.reversal import Reversal
-from flask_mpesa.mpesa.api.transaction_status import TransactionStatus
+from flask_mpesa.api.b2c import MpesaBase
+from flask_mpesa.api.b2c import B2C
+from flask_mpesa.api.c2b import C2B
+from flask_mpesa.api.b2b import B2B
+from flask_mpesa.api.balance import Balance
+from flask_mpesa.api.mpesa_express import MpesaExpress
+from flask_mpesa.api.reversal import Reversal
+from flask_mpesa.api.transaction_status import TransactionStatus
 
 
 class MpesaAPI(object):
@@ -21,7 +22,8 @@ class MpesaAPI(object):
 
     def init_app(self, app):
         if('APP_KEY' not in app.config and 'APP_SECRET' not in app.config and 'API_ENVIRONMENT' not in app.config):
-            warnings.warn('Neither APP_KEY nor APP_SECRET nor API_ENVIRONMENT is set')
+            warnings.warn(
+                'Neither APP_KEY nor APP_SECRET nor API_ENVIRONMENT is set')
 
         self.app = app
         self.register_blueprint(app)
@@ -56,6 +58,7 @@ class MpesaAPI(object):
             'No application found. Either work inside a view function or push'
             ' an application context.'
         )
+
     @property
     def C2B(self):
         """Method returns a C2B Object"""
