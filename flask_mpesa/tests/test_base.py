@@ -40,15 +40,15 @@ def test_express_sim(express_sim):
     assert dict(resp).keys() == express_sim.keys()
 
 
-@pytest.mark.usefixtures("mock_fixture_test_express_query")
-def test_express_query(express_query):
-    data = {
-        "business_shortcode": 174379,
-        "passcode": "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919",
-        "checkout_request_id": "ws_CO_021020210904344355"
-    }
-    resp = mp.MpesaExpress.query(**data)
-    assert dict(resp).keys() == express_query.keys()
+# @pytest.mark.usefixtures("mock_fixture_test_express_query")
+# def test_express_query(express_query):
+#     data = {
+#         "business_shortcode": 174379,
+#         "passcode": "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919",
+#         "checkout_request_id": "ws_CO_021020210904344355"
+#     }
+#     resp = mp.MpesaExpress.query(**data)
+#     assert dict(resp).keys() == express_query.keys()
 
 
 @pytest.mark.usefixtures("mock_fixture_test_c2b_reg")
