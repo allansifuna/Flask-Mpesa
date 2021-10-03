@@ -6,12 +6,12 @@ with open('README.md') as f:
 
 setup(
     name='Flask-Mpesa',
-    version='1.2.6',
+    version='1.2.7',
     url='https://github.com/allansifuna/flask-mpesa',
     license='BSD',
     author='Allan Namasaka Sifuna',
     author_email='allansifuna324@gmail.com',
-    description='A Safaricom\'s Daraja API Package for Flask Applications.',
+    description='A Safaricom\'s Daraja2.0 API Package for Flask Applications.',
     long_description=readme,
     long_description_content_type="text/markdown",
     packages=find_packages(),
@@ -32,8 +32,8 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: Implementation :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]

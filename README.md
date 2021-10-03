@@ -53,7 +53,6 @@ use https instead of http protocal. I recommend use of a port tunneling app like
 For testing your application, You should acquire test cedentials from [Daraja API's Portal](https://developer.safaricom.co.ke)
 but if you the credentials don't work for you, you can use the credentials below:-
 
-
 | Key  | Value |
 | ------------- | ------------- |
 | app_key | vbxsneeZ9IMFoyKKIgOIQQZFlawAADnP |

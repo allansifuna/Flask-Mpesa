@@ -1,13 +1,20 @@
 .. currentmodule:: flask_mpesa
+Version 1.2.7
+-------------
+
+Released 2021-10-03
+
+-   Added more tests
+-   Fixed Bugs
 
 Version 1.2.6
 -------------
 
 Released 2021-10-02
 
--   Added Tests
--   Fixed Bugs
--   CI/CD Integration
+-   Added tests
+-   Fixed bugs
+-   CI/CD integration
 -   Added a Changelog
 
 Version 1.2.5
@@ -16,7 +23,7 @@ Version 1.2.5
 Released 2020-10-20
 
 -   Various bugfixes
--   Improved Documentation
+-   Improved documentation
 
 
 Version 1.2.0
