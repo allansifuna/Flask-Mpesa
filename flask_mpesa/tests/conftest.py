@@ -1,5 +1,4 @@
 import pytest
-import os
 from flask_mpesa.tests.data import AUTH, B2C, EXPRESS_SIM, EXPRESS_QUERY, C2B_REG, C2B_SIM, BAL, TRANSACTION_STATUS
 
 base_url = "https://sandbox.safaricom.co.ke"
@@ -97,6 +96,7 @@ def fixture_mock_test_bal(requests_mock, bal):
     requests_mock.get(url, json=AUTH)
     url = base_url + "/mpesa/accountbalance/v1/query"
     requests_mock.post(url, json=bal)
+
 
 @pytest.fixture(name="mock_fixture_test_t_status")
 def fixture_mock_test_t_status(requests_mock, t_status):

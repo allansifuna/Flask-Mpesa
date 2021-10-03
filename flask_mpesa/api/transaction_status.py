@@ -1,7 +1,5 @@
-import base64
 import requests
 from .auth import MpesaBase
-import datetime
 
 
 class TransactionStatus(MpesaBase):

@@ -18,7 +18,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install flask-m
 pip install Flask-Mpesa
 ```
 
-## Usage
+## QuickStart
 
 ```python
 from flask import Flask
@@ -29,7 +29,6 @@ app=Flask(__name__)
 
 mpesa_api=MpesaAPI(app)
 ```
-
 
 ## if you are using blueprints
 ```python
@@ -52,8 +51,7 @@ use https instead of http protocal. I recommend use of a port tunneling app like
 
 ## Sample Credentials
 For testing your application, You should acquire test cedentials from [Daraja API's Portal](https://developer.safaricom.co.ke)
-but if you the credentials don't work for you you can use the credentials below:-
-
+but if you the credentials don't work for you, you can use the credentials below:-
 
 
 | Key  | Value |
