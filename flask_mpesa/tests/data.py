@@ -48,3 +48,9 @@ TRANSACTION_STATUS = {
     "ResponseCode": "0",
     "ResponseDescription": "Accept the service request successfully."
 }
+B2B = {
+    'OriginatorConversationID': '77333-45263982-1',
+    'ConversationID': 'AG_20211003_00004e5173b463fe1447',
+    'ResponseCode': '0',
+    'ResponseDescription': 'Accept the service request successfully.'
+}

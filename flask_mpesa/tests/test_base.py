@@ -103,3 +103,22 @@ def test_t_status(t_status):
             }
     resp = mp.TransactionStatus.check_transaction_status(**data)
     assert dict(resp).keys() == t_status.keys()
+
+
+@pytest.mark.usefixtures("mock_fixture_test_b2b")
+def test_b2b(b2b):
+    data = {"initiator": "testapi364",
+            "security_credential": "TziD/ydlT52Fm6SOH1ebrzUFwy3cP6OGplsrWja+X/1roQy2AzMsj5QGuqu9O+IFR1E6l16Jm87tg4bhnxoIhAufCEWusQI1wJZ6YLzpN0cHZAY/8SN1JfHdgEkrmksAY14pejHyfntyLT9Sg51kBjaj6J7/2+gHl2e64klnJAhlfPJWxC18zwEzsg58zFmypcovPPB6MHkPLyHQNFbu4oXC0e2gkZrIAWXTNN7PpYt4m/w39s5txU7/6P7hTzXgYAgqk4kxfPBIBeEmKhH5tSGxMD+xnSpZIXLovFgopexq8S76pmdLMjr2CdR60GlwXnAPnKJ5U9CIxRRewuoksQ==",
+            "amount": "100",
+            "command_id": "BusinessPayBill",
+            "sender_identifier_type": "4",
+            "receiver_identifier_type": "4",
+            "party_a": "600364",
+            "party_b": "600000",
+            "remarks": "Enterance Fee",
+            "queue_timeout_url": "https://4ca0-197-156-137-168.ngrok.io/b2b-timeout",
+            "result_url": "https://4ca0-197-156-137-168.ngrok.io/b2b-result",
+            "account_reference": "DSC-party_a"
+            }
+    resp = mp.B2B.transact(**data)
+    assert dict(resp).keys() == b2b.keys()

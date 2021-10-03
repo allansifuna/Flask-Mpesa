@@ -1,5 +1,5 @@
 import pytest
-from flask_mpesa.tests.data import AUTH, B2C, EXPRESS_SIM, EXPRESS_QUERY, C2B_REG, C2B_SIM, BAL, TRANSACTION_STATUS
+from flask_mpesa.tests.data import AUTH, B2C, EXPRESS_SIM, EXPRESS_QUERY, C2B_REG, C2B_SIM, BAL, TRANSACTION_STATUS, B2B
 
 base_url = "https://sandbox.safaricom.co.ke"
 
@@ -42,6 +42,11 @@ def bal():
 @pytest.fixture()
 def t_status():
     return TRANSACTION_STATUS
+
+
+@pytest.fixture()
+def b2b():
+    return B2B
 
 
 @pytest.fixture(name="mock_fixture_test_auth")
@@ -104,3 +109,11 @@ def fixture_mock_test_t_status(requests_mock, t_status):
     requests_mock.get(url, json=AUTH)
     url = base_url + "/mpesa/transactionstatus/v1/query"
     requests_mock.post(url, json=t_status)
+
+
+@pytest.fixture(name="mock_fixture_test_b2b")
+def fixture_mock_test_b2b(requests_mock, b2b):
+    url = base_url + "/oauth/v1/generate?grant_type=client_credentials"
+    requests_mock.get(url, json=AUTH)
+    url = base_url + "/mpesa/b2b/v1/paymentrequest"
+    requests_mock.post(url, json=b2b)
