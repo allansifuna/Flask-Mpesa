@@ -86,7 +86,7 @@ class MpesaExpress(MpesaBase):
         encoded = base64.b64encode(password.encode())
         payload = {
             "BusinessShortCode": business_shortcode,
-            "Password": encoded,
+            "Password": str(encoded),
             "Timestamp": time,
             "CheckoutRequestID": checkout_request_id
         }
