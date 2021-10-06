@@ -192,7 +192,7 @@ def balance():
             "queue_timeout_url": "",
             "result_url": ""
             }
-    balance_response = mp.Balance.get_balance(**data)  # ** unpacks the dictionary
+    balance_response = mpesa_api.Balance.get_balance(**data)  # ** unpacks the dictionary
 
     # use balance_response to capture the response
 
@@ -213,7 +213,7 @@ def transaction_status():
             "result_url": "",
             "occassion": ""
             }
-    status = mp.TransactionStatus.check_transaction_status(**data)
+    status = mpesa_api.TransactionStatus.check_transaction_status(**data)
     # use status to capture the response
 
 ```
