@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --upgrade pre-commit
           python -m pip install -e '.[d]'
-          python -m pip install pytest==5.2.1 requests-mock==1.8.0
+          python -m pip install coveralls==2.2.0 pytest==5.2.1 requests-mock==1.8.0
       - name: Run tests
         run: |
           coverage run -m pytest flask_mpesa
