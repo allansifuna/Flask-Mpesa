@@ -147,7 +147,7 @@ def c2b_confirmation():
 ### MpesaExpress  api
 
 ```python
-@app.route('/transact/c2b')
+@app.route('/transact/mpesaexpress')
 def simulate_stk_push():
     data = {
         "business_shortcode": "[BusinessShortcode]", #from developers portal
