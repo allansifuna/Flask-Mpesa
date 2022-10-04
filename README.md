@@ -39,7 +39,7 @@ mpesa_api.init_app(app)
 ### Be sure to set the following variables in the app.config
 
 ```python
-app.config["API_ENVIRONMENT"] = "sandbox" #sandbox or live
+app.config["API_ENVIRONMENT"] = "sandbox" #sandbox or production
 app.config["APP_KEY"] = "..." # App_key from developers portal
 app.config["APP_SECRET"] = "..." #App_Secret from developers portal
 ```
