@@ -148,7 +148,7 @@ def c2b_confirmation():
 
 ```python
 @app.route('/transact/c2b')
-def c2b_transact():
+def simulate_stk_push():
     data = {
         "business_shortcode": "[BusinessShortcode]", #from developers portal
         "passcode": "[Passcode]",#from developers portal
