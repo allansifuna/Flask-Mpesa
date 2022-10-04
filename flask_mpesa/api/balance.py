@@ -4,7 +4,7 @@ from .auth import MpesaBase
 
 class Balance(MpesaBase):
     def __init__(self, env="sandbox", app_key=None, app_secret=None, sandbox_url="https://sandbox.safaricom.co.ke",
-                 live_url="https://safaricom.co.ke"):
+                 live_url="https://api.safaricom.co.ke"):
         MpesaBase.__init__(self, env, app_key, app_secret,
                            sandbox_url, live_url)
         self.authentication_token = self.authenticate()
