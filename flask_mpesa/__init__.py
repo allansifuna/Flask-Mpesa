@@ -15,7 +15,7 @@ class MpesaAPI(object):
     def __init__(self, app=None, **kwargs):
         self.app = app
         self.sandbox_url = "https://sandbox.safaricom.co.ke"
-        self.live_url = "https://safaricom.co.ke"
+        self.live_url = "https://api.safaricom.co.ke"
 
         if app:
             self.init_app(app)
