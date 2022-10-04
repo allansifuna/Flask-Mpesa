@@ -4,7 +4,7 @@ from requests.auth import HTTPBasicAuth
 
 class MpesaBase:
     def __init__(self, env="sandbox", app_key=None, app_secret=None, sandbox_url="https://sandbox.safaricom.co.ke",
-                 live_url="https://safaricom.co.ke"):
+                 live_url="https://api.safaricom.co.ke"):
         self.env = env
         self.app_key = app_key
         self.app_secret = app_secret
