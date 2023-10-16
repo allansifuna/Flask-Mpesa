@@ -1,6 +1,5 @@
 from flask import Blueprint, current_app
 import warnings
-from flask_mpesa.api.b2c import MpesaBase
 from flask_mpesa.api.b2c import B2C
 from flask_mpesa.api.c2b import C2B
 from flask_mpesa.api.b2b import B2B
@@ -19,11 +18,19 @@ class MpesaAPI(object):
 
         if app:
             self.init_app(app)
+        else:
+            warnings.warn("Please pass the Flask app object into MpesaApi class instance")
 
     def init_app(self, app):
-        if('APP_KEY' not in app.config and 'APP_SECRET' not in app.config and 'API_ENVIRONMENT' not in app.config):
+        if 'APP_KEY' not in app.config:
             warnings.warn(
-                'Neither APP_KEY nor APP_SECRET nor API_ENVIRONMENT is set')
+                'APP_KEY is not set')
+        if 'APP_SECRET' not in app.config:
+            warnings.warn(
+                'APP_SECRET is not set')
+        if 'API_ENVIRONMENT' not in app.config:
+            warnings.warn(
+                'API_ENVIRONMENT is not set')
 
         self.app = app
         self.register_blueprint(app)

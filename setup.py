@@ -19,6 +19,7 @@ setup(
     platforms='any',
     install_requires=[
         'Flask',
+        'Requests'
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
