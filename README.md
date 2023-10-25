@@ -1,12 +1,13 @@
-| Key | Badge |
-| ------------- | ------------- |
-| Testing Status | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/95668732c0014077abf06e7826c1becf)](https://www.codacy.com/manual/allansifuna/Flask-Mpesa?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=allansifuna/Flask-Mpesa&amp;utm_campaign=Badge_Grade) [![Coverage Status](https://coveralls.io/repos/github/allansifuna/Flask-Mpesa/badge.svg?branch=master)](https://coveralls.io/github/allansifuna/Flask-Mpesa?branch=master) |
-| Size | ![Code size](https://img.shields.io/github/languages/code-size/allansifuna/Flask-Mpesa?color=dark-green)|
-| Compatibility | ![Top language](https://img.shields.io/github/languages/top/allansifuna/Flask-Mpesa) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Flask-Mpesa?color=dark-green) ![PyPI - Implementation](https://img.shields.io/pypi/implementation/Flask-Mpesa?color=blue) |
-| Version Info. | ![PyPI](https://img.shields.io/pypi/v/Flask-Mpesa)  ![PyPI-Downloads](https://img.shields.io/pypi/dw/flask-mpesa?color=blue&label=PyPI-Downloads) |
-| Licence | ![GitHub](https://img.shields.io/github/license/allansifuna/Flask-Mpesa?color=dark-green) |
+| Key            | Badge                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Testing Status | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/95668732c0014077abf06e7826c1becf)](https://www.codacy.com/manual/allansifuna/Flask-Mpesa?utm_source=github.com&utm_medium=referral&utm_content=allansifuna/Flask-Mpesa&utm_campaign=Badge_Grade) [![Coverage Status](https://coveralls.io/repos/github/allansifuna/Flask-Mpesa/badge.svg?branch=master)](https://coveralls.io/github/allansifuna/Flask-Mpesa?branch=master) |
+| Size           | ![Code size](https://img.shields.io/github/languages/code-size/allansifuna/Flask-Mpesa?color=dark-green)                                                                                                                                                                                                                                                                                                                                |
+| Compatibility  | ![Top language](https://img.shields.io/github/languages/top/allansifuna/Flask-Mpesa) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Flask-Mpesa?color=dark-green) ![PyPI - Implementation](https://img.shields.io/pypi/implementation/Flask-Mpesa?color=blue)                                                                                                                                                          |
+| Version Info.  | ![PyPI](https://img.shields.io/pypi/v/Flask-Mpesa) ![PyPI-Downloads](https://img.shields.io/pypi/dw/flask-mpesa?color=blue&label=PyPI-Downloads)                                                                                                                                                                                                                                                                                        |
+| Licence        | ![GitHub](https://img.shields.io/github/license/allansifuna/Flask-Mpesa?color=dark-green)                                                                                                                                                                                                                                                                                                                                               |
 
 # Flask-Mpesa
+
 Flask-Mpesa provides a simple intergration for flask Applications with Mpesa Daraja API.
 
 ## Installation
@@ -30,12 +31,14 @@ mpesa_api=MpesaAPI(app)
 ```
 
 ## if you are using blueprints
+
 ```python
 from flask_mpesa import MpesaAPI
 mpesa_api=MpesaAPI()
 
 mpesa_api.init_app(app)
 ```
+
 ### Be sure to set the following variables in the app.config
 
 ```python
@@ -45,26 +48,34 @@ app.config["APP_SECRET"] = "..." #App_Secret from developers portal
 ```
 
 ## Usage
+
 For the api requests to be processed by safaricom, they need to be secure. This means that your urls should
-use https instead of http protocal. I recommend use of a port tunneling app like Ngrok.
+use https instead of http protocal. I recommend use of a port tunneling app like Ngrok.In production, you should
+set your mpesa_api_environment in the .env file as follows;
+
+```
+MPESA_API_ENVIRONMENT=production
+```
 
 ## Sample Credentials
+
 For testing your application, You should acquire test cedentials from [Daraja API's Portal](https://developer.safaricom.co.ke)
 but if you the credentials don't work for you, you can use the credentials below:-
 
-| Key  | Value |
-| ------------- | ------------- |
-| app_key | vbxsneeZ9IMFoyKKIgOIQQZFlawAADnP |
-| app_secret | WAzDhQVhitIXwiTc |
-| initiator_name  | testapi364  |
-| party_a | 600364 |
+| Key                 | Value                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| app_key             | vbxsneeZ9IMFoyKKIgOIQQZFlawAADnP                                                                                                                                                                                                                                                                                                                         |
+| app_secret          | WAzDhQVhitIXwiTc                                                                                                                                                                                                                                                                                                                                         |
+| initiator_name      | testapi364                                                                                                                                                                                                                                                                                                                                               |
+| party_a             | 600364                                                                                                                                                                                                                                                                                                                                                   |
 | security_credential | TziD/ydlT52Fm6SOH1ebrzUFwy3cP6OGplsrWja+X/1roQy2AzMsj5QGuqu9O+IFR1E6l16Jm87tg4bhnxoIhAufCEWusQI1wJZ6YLzpN0cHZAY/8SN1JfHdgEkrmksAY14pejHyfntyLT9Sg51kBjaj6J7/2+gHl2e64klnJAhlfPJWxC18zwEzsg58zFmypcovPPB6MHkPLyHQNFbu4oXC0e2gkZrIAWXTNN7PpYt4m/w39s5txU7/6P7hTzXgYAgqk4kxfPBIBeEmKhH5tSGxMD+xnSpZIXLovFgopexq8S76pmdLMjr2CdR60GlwXnAPnKJ5U9CIxRRewuoksQ== |
-| business_shortcode | 174379 |
-| passcode | bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919 |
+| business_shortcode  | 174379                                                                                                                                                                                                                                                                                                                                                   |
+| passcode            | bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919                                                                                                                                                                                                                                                                                         |
 
 NOTE: These credentials are for a sample sandbox application and cannot be used in production.
 
-### B2C  Api
+### B2C Api
+
 This returns a json response to your result_url.
 
 ```python
@@ -86,7 +97,8 @@ def b2c_transact():
 
 ```
 
-### B2B  Api
+### B2B Api
+
 This returns a json response to your result_url.
 
 ```python
@@ -109,7 +121,7 @@ def b2b_transact():
 
 ```
 
-### C2B  api
+### C2B api
 
 ```python
 @app.route('/transact/c2b')
@@ -144,7 +156,7 @@ def c2b_confirmation():
 
 ```
 
-### MpesaExpress  api
+### MpesaExpress api
 
 ```python
 @app.route('/transact/mpesaexpress')
@@ -177,7 +189,8 @@ def callback_url():
     return jsonify(message),200
 
 ```
-### Balance  api
+
+### Balance api
 
 ```python
 @app.route('/transact/balance')
@@ -197,7 +210,7 @@ def balance():
 
 ```
 
-### TransactionStatus  api
+### TransactionStatus api
 
 ```python
 @app.route("/transaction-status")
@@ -216,10 +229,13 @@ def transaction_status():
     # use status to capture the response
 
 ```
+
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
+
 [MIT](https://github.com/allansifuna/Flask-Mpesa/blob/master/LICENSE)
